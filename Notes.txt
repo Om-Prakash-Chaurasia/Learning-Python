@@ -1,0 +1,97 @@
+# What is Python?
+=> Python is a High Level Language which uses interpreter to convert the high level code into Machine Code.
+
+
+# Why learn to Python?
+=> We should learn Python because:
+1. Python is simple and easy to learn.
+2. It is free and open source.
+3. It is a High Level Language which is used for Data Science, Data Analytics, Machine Learning, Artificial Intelligence and also Web Development.
+4. It was developed by Guido van Rossum.
+5. It is portable i.e. we can write Python code on one platform say Windows and same code can be executed on any other platforms like Linux, macOS, etc.
+
+
+# How to download Python?
+=> Go to browser and:
+1. Search for Python for Windows.
+2. You will see Python Download url:- python.org
+3. Visit the url and you will see download button.
+4. Download from there and install.
+
+NOTE:- For Windows, may sure that when installation set-up appears you check both boxes for admin access and path set-up.
+
+
+# Once installation is done you can verify it in the. terminal by using command: python3 --version
+If you see the Python version displayed then it is successfully installed and if not then it did not install properly and you need to re-install it.
+
+
+# Now you can go to VS Code and install Python extension:- Python language support with extension access points for IntelliSense (Pylance), Debugging (Python Debugger), linting, formatting, refactoring, unit tests, and more.
+
+
+# Once installation is complete, you can create a folder and open it in VS Code and then create a file with with any name and the extension of the file should be ".py" , e.g. FirstProgram.py 
+
+After creating file you can try a basic output command for Python i.e. to Print Hello World:
+print("Hello World")
+
+After this you can save changes in file. Also note that "Prettier" formatter will not work with Python file, and you need to install separate extension like "Black" or "Autopep8" to format Python files.
+
+
+# To run the code you can click on Run button on the top right corner of VS Code, and select "Run Python File", or in terminal you can type "python3 fileName".
+
+=> Printing output in Python:-
+print("Hello World")
+# Here print() method is used to print output.
+
+
+# Python Character Set
+1. Letters: A to Z, a to z 
+2. Digits: 0 to 9 
+3. Special Symbols: + - * / etc 
+4. Whitespaces: Blank Spaces, tab, carriage return, newline, formfeed
+5. Other Characters: Python can process all ASCII and Unicode characters as part of data or literals.
+
+# Printing in different line:
+print("My name is Om Prakash.")
+print("I am 26 years old.")
+
+# Printing in same line:
+print("My name is Om Prakash.", "I am 26 years old.")
+
+# Printing numbers in various formats:
+print(26)
+print(5 + 7)
+print(5 - 7)
+print(5 * 7)
+print(7 / 5)
+
+
+# Variables in Python:
+=> A variable in a name given to a memory location in a program. e.g.
+name = "Om Prakash"  # This variable has String value.
+age = 26  # This variable has Integer value.
+price = 25.99  # This variable has Float value.
+
+print(name)
+print(age)
+print(name, age, price)
+print("My name is", name, ".", "I am", age, "years old.")
+
+
+# Assigning one variable value to other variable:
+age2 = age
+print(age2)
+
+
+# Rules for Identifiers:
+=> i.e. Rules for naming variables, functions, classes, etc.
+1. Identifiers can be combination of uppercase and lowercase letters, digits, or an underscore(_). So, myVariable, variable_1, variable_for_print, all are valid Python identifiers.
+2. An Identifier can not start with digit. So, while "variable1" is valid, "1variable" is not valid.
+3. We can't use special symbols like !, #, @, %, $, etc in our Identifier.
+4. Identifier can be of any length.
+
+=> Make sure while naming Identifiers the name should be simple, short and meaningful.
+
+=> Another important thing about variable is that you can check the data type of the variable by using "type()" method. e.g.
+print(type(name))
+print(type(age))
+print(type(price))
