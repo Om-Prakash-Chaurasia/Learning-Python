@@ -95,3 +95,287 @@ print(age2)
 print(type(name))
 print(type(age))
 print(type(price))
+
+
+# Data types in Python: There are various data types in Python but we mainly study followings:
+# 1. Primitive data types: These are data types which stores only one value in a variable. It uses a small fixed amount of memory.
+
+# i. Integers: We can have -ve, zero, and +ve values in Integer data type. e.g.
+quantity = 240
+print(quantity)
+
+volume = 0
+print(volume)
+
+profit = -12
+print(profit)
+
+# ii. String: Anything written in "" or '' or '''''' is treated as String data type but we will mostly use "". e.g.
+quality = 'satisfactory'
+print(quality)
+
+status = "OK Tested"
+print(status)
+
+release = '''29th July 2026'''
+print(release)
+
+release2 = """21st December 2026"""
+print(release2)
+
+# iii. Float: All decimal values are treated as Float data type. e.g.
+area = 12.55
+print(area)
+
+quantity = 0.0
+print(quantity)
+
+stockPrice = -1.2
+print(stockPrice)
+
+# iv. Boolean: It holds only two values i.e. either True or "False", make sure while writing True or False use capital T and capital F or else it will throw error. e.g.
+isAvailable = True
+print(isAvailable)
+
+isValid = False
+print(isValid)
+
+# v. None: This is assigned to those variables where we don't want to store any value currently. e.g.
+none = None
+print(none)
+
+
+# 2. Non-primitive data type: Also known as Derived data type. These can hold multiple values in a single variable. It uses variable amount of memory.
+# i. list: An ordered, mutable sequence of items that allows duplicate elements and is written in []. This is equivalent to writing and array in JS. e.g.
+list = [1, 2, "apple"]
+print(list)
+
+# ii. tuple: An ordered, immutable sequence of items that allows duplicate elements and is written in (). e.g.
+tuple = (10, 20, 30)
+print(tuple)
+
+# iii. dict: This stands for Dictionary. It is an un-unordered, mutable collection of key-value pairs and is written in {}. This is equivalent to writing JSON in JS. e.g.
+dict = {"name": "Alice", "age": 25}
+print(dict)
+
+# iv. set: An unordered collection of unique, mutable items that does not allow duplicates. It is also written in {}. e.g.
+set = {1, 2, 3}
+print(set)
+
+=> Even Classes and Objects are also considered as non-primitive data type in Python.
+
+
+# Keywords: These are reserved words in Python. These words should not be used as Identifiers. Some reserved words are given below:
+and, as, assert, break, class, continue, def, del, elif, else, expect, finally, False, for, from, global, if, import, in, is, lambda, nonlocal, None, not, or, pass, raise, return, True, try, with, while, yield, etc.
+
+=> Also one important thing to remember is that there are some languages which are case-sensitive like Java, C++ and some are case-insensitive like SQL, HTML. Python is case-sensitive, meaning if you write a variable name as 'cost' then it is not equal to writing 'Cost'. These two variables will be treated differently.
+
+
+# Let's Print the sum of two Numbers:
+num1 = 2
+num2 = 5
+
+sum = num1 + num2
+print(sum)
+
+
+# Comments in Python: Comments are those parts in the program which are not executed. We write comments to explain our code in normal English. We can write comments in two ways.
+
+1. Single Line Comment: For single line comment we use # symbol. e.g.
+# This is a Single Line Comment.
+sum = num1 + num2 # This is logic for adding two numbers
+
+2. Multi-Line Comment: If you want to comment continuously in more than one line then you can use """""". I know we have discussed it as String but if you don't store this in any variable then it will be treated as comment as Garbage collector will take it when executing the program. e.g.
+"""
+Multi-Line
+Comment
+"""
+
+
+# Operators: An operator is a symbol that performs a certain operation between operands.
+
+# Types of Operators in Python: There are various types of operator in Python but we will discuss about the most commonly used ones.
+
+# 1. Arithmetic Operators: These are operators which performs mathematical calculations like +, -, *, /, %, **
+# e.g.
+a = 5
+b = 2
+
+sum = a + b
+print(sum)
+
+diff = a - b
+print(diff)
+
+pro = a * b
+print(pro)
+
+div = b / a
+# One interesting thing in Python is that result of division always produces Float value.
+print(div)
+
+mod = b % a
+print(mod)
+
+pow = a**b
+print(pow)
+
+# 2. Relational Operators: Also known as Comparison operators. These are used to compare two values and it always returns boolean as output like ==, !=, >, <, >=, <=
+# e.g.
+a = 50
+b = 20
+
+print(a == b)
+print(a != b)
+print(a > b)
+print(a < b)
+print(a >= b)
+print(a <= b)
+
+# 3. Assignment Operators: These are used assign values in a variable like =, +=, -=, *=, /=, %=, **=
+# e.g.
+num = 10
+print("num: ", num)
+
+num += 10  # Can also be written as num = num + 10
+print("num: ", num)
+
+num -= 10  # Can also be written as num = num - 10
+print("num: ", num)
+
+num *= 2  # Can also be written as num = num * 2
+print("num: ", num)
+
+num /= 2  # Can also be written as num = num / 2
+print("num: ", num)
+
+num %= 2  # Can also be written as num = num % 2
+print("num: ", num)
+
+num **= 2  # Can also be written as num = num ** 2
+print("num: ", num)
+
+# 4. Logical Operators: These are used to perform logical operations and always returns boolean as output like and, or, not
+# e.g.
+
+num1 = 50
+num2 = 30
+
+print(not False)
+print(not (a > b))
+# Here, a > b so, output will be true but 'not' will reverse the answer i.e. it will convert true into false and vice-versa.
+
+val1 = True
+val2 = False
+print("and operator: ", val1 and val2)
+# Returns true only if all the provided values are true else returns false.
+
+print("and operator: ", (num1 == num2) and (num1 > num2))
+
+print("or operator: ", val1 or val2)
+# Returns true is either of the provided value is true else returns false.
+
+print("and operator: ", (num1 == num2) or (num1 > num2))
+
+
+# Type Conversion: This means converting one data type into another. There are two types:
+
+1. Conversion: This happens automatically in Python. In Java this is known as Implicit conversion (Widening Casting). e.g. Let us consider we want to add to variables as shown below:
+a = 2  # This is Integer value.
+b = 4.25  # This is Float value.
+
+sum = a + b
+# Sum will automatically convert into Float value because Float is superior than Integer as it can store more information i.e. the decimal values too.
+print(sum)
+
+2. Casting: This is done manually by developers. In Java this is known as Explicit conversion (Narrow Casting). e.g. Let us consider we want to add to variables as shown below:
+a = "2"  # This is String value.
+b = 4.25  # This is Float value.
+
+sum = a + b
+# Sum will throw error as it cannot directly convert result into different data type so, we need to manually convert String into Integer or Float.
+print(sum)
+
+After Casting:
+a = int("2")  # Converting String into Integer.
+b = 4.25  # This is Float value.
+
+print(type(a))
+sum = a + b
+print(sum)
+
+OR, We can also convert it into Float value.
+a = float("2")  # Converting Sting into Float.
+print(type(a))
+
+=> But if character were present instead of number inside a String then we can not do type casting, if we try then it will throw error as, characters can not be converted into Integer or Float.
+
+Other e.g.
+a = 3.14
+a = str(a) # Converting Float into String
+
+print(type(a))
+
+
+# Taking input from user in Python: For this we use input(), this method is used to accept values using keyboard from user.
+NOTE: Input from user is always a String value so you need to type cast this value as per your desired type. e.g.
+
+input()  # By default it is String type.
+int(input())  # Converting input into String.
+float(input())  # Converting input into Float.
+input("Enter your name: ") # Displaying message for input.
+
+name = input("Enter your name: ") # Storing input into a variable
+print("Welcome! ", name)
+
+age = input("Enter your age: ")
+print(type(age)) // It will show as String
+print("Your age is", age)
+
+=> This is where type casting comes into picture mostly.
+val = int(input("Enter some value")) // Converting input into Integer.
+print(type(val))
+
+Other e.g.
+name = input("Enter name: ")
+age = int(input("Enter age: "))
+marks = float(input("Enter marks: "))
+
+print("Welcome,", name)
+print("age=", age)
+print("marks=", marks)
+
+
+# Practice Question:
+1. Write a Program to input 2 numbers & print their sum.
+Solution:
+
+num1 = int(input("Enter num1: "))
+num2 = int(input("Enter num2: "))
+
+sum = num1 + num2
+print("Sum =", sum)
+
+2. Write a Program to input side of a square & print its area.
+Solution:
+
+side = float(input("Enter length: "))
+
+area = side * side
+print("Area of square =", area)
+
+3. Write a Program to input 2 floating point numbers & print their average.
+Solution:
+
+num1 = float(input("Enter num1: "))
+num2 = float(input("Enter num2: "))
+
+print("Average =", (num1 + num2) / 2)
+
+4. Write a Program to input 2 int numbers, a and b. Print True if a is grater than or equal to b. If not print False.
+Solution:
+
+a = int(input("Enter num1: "))
+b = int(input("Enter num2: "))
+
+print(a >= b)
