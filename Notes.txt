@@ -67,6 +67,7 @@ print(7 / 5)
 
 # Variables in Python:
 => A variable in a name given to a memory location in a program. e.g.
+
 name = "Om Prakash"  # This variable has String value.
 age = 26  # This variable has Integer value.
 price = 25.99  # This variable has Float value.
@@ -92,6 +93,7 @@ print(age2)
 => Make sure while naming Identifiers the name should be simple, short and meaningful.
 
 => Another important thing about variable is that you can check the data type of the variable by using "type()" method. e.g.
+
 print(type(name))
 print(type(age))
 print(type(price))
@@ -101,6 +103,7 @@ print(type(price))
 # 1. Primitive data types: These are data types which stores only one value in a variable. It uses a small fixed amount of memory.
 
 # i. Integers: We can have -ve, zero, and +ve values in Integer data type. e.g.
+
 quantity = 240
 print(quantity)
 
@@ -111,6 +114,7 @@ profit = -12
 print(profit)
 
 # ii. String: Anything written in "" or '' or '''''' is treated as String data type but we will mostly use "". e.g.
+
 quality = 'satisfactory'
 print(quality)
 
@@ -124,6 +128,7 @@ release2 = """21st December 2026"""
 print(release2)
 
 # iii. Float: All decimal values are treated as Float data type. e.g.
+
 area = 12.55
 print(area)
 
@@ -134,6 +139,7 @@ stockPrice = -1.2
 print(stockPrice)
 
 # iv. Boolean: It holds only two values i.e. either True or "False", make sure while writing True or False use capital T and capital F or else it will throw error. e.g.
+
 isAvailable = True
 print(isAvailable)
 
@@ -141,24 +147,29 @@ isValid = False
 print(isValid)
 
 # v. None: This is assigned to those variables where we don't want to store any value currently. e.g.
+
 none = None
 print(none)
 
 
 # 2. Non-primitive data type: Also known as Derived data type. These can hold multiple values in a single variable. It uses variable amount of memory.
 # i. list: An ordered, mutable sequence of items that allows duplicate elements and is written in []. This is equivalent to writing and array in JS. e.g.
+
 list = [1, 2, "apple"]
 print(list)
 
 # ii. tuple: An ordered, immutable sequence of items that allows duplicate elements and is written in (). e.g.
+
 tuple = (10, 20, 30)
 print(tuple)
 
 # iii. dict: This stands for Dictionary. It is an un-unordered, mutable collection of key-value pairs and is written in {}. This is equivalent to writing JSON in JS. e.g.
+
 dict = {"name": "Alice", "age": 25}
 print(dict)
 
 # iv. set: An unordered collection of unique, mutable items that does not allow duplicates. It is also written in {}. e.g.
+
 set = {1, 2, 3}
 print(set)
 
@@ -182,10 +193,12 @@ print(sum)
 # Comments in Python: Comments are those parts in the program which are not executed. We write comments to explain our code in normal English. We can write comments in two ways.
 
 1. Single Line Comment: For single line comment we use # symbol. e.g.
+
 # This is a Single Line Comment.
 sum = num1 + num2 # This is logic for adding two numbers
 
 2. Multi-Line Comment: If you want to comment continuously in more than one line then you can use """""". I know we have discussed it as String but if you don't store this in any variable then it will be treated as comment as Garbage collector will take it when executing the program. e.g.
+
 """
 Multi-Line
 Comment
@@ -198,6 +211,7 @@ Comment
 
 # 1. Arithmetic Operators: These are operators which performs mathematical calculations like +, -, *, /, %, **
 # e.g.
+
 a = 5
 b = 2
 
@@ -222,6 +236,7 @@ print(pow)
 
 # 2. Relational Operators: Also known as Comparison operators. These are used to compare two values and it always returns boolean as output like ==, !=, >, <, >=, <=
 # e.g.
+
 a = 50
 b = 20
 
@@ -234,6 +249,7 @@ print(a <= b)
 
 # 3. Assignment Operators: These are used assign values in a variable like =, +=, -=, *=, /=, %=, **=
 # e.g.
+
 num = 10
 print("num: ", num)
 
@@ -289,6 +305,7 @@ sum = a + b
 print(sum)
 
 2. Casting: This is done manually by developers. In Java this is known as Explicit conversion (Narrow Casting). e.g. Let us consider we want to add to variables as shown below:
+
 a = "2"  # This is String value.
 b = 4.25  # This is Float value.
 
@@ -311,6 +328,7 @@ print(type(a))
 => But if character were present instead of number inside a String then we can not do type casting, if we try then it will throw error as, characters can not be converted into Integer or Float.
 
 Other e.g.
+
 a = 3.14
 a = str(a) # Converting Float into String
 
@@ -337,6 +355,7 @@ val = int(input("Enter some value")) // Converting input into Integer.
 print(type(val))
 
 Other e.g.
+
 name = input("Enter name: ")
 age = int(input("Enter age: "))
 marks = float(input("Enter marks: "))
@@ -346,7 +365,8 @@ print("age=", age)
 print("marks=", marks)
 
 
-# Practice Question:
+# Practice Questions:
+
 1. Write a Program to input 2 numbers & print their sum.
 Solution:
 
@@ -379,3 +399,142 @@ a = int(input("Enter num1: "))
 b = int(input("Enter num2: "))
 
 print(a >= b)
+
+
+# Strings: String is a data type that stores a sequence of characters. It can have one or more than one character or sometimes it can be an empty String. e.g.
+
+str1 = "This is a string"
+str2 = "Jain University"
+str3 = """this is a string"""
+
+=> Why do we have three different ways to define string in Python?
+Because, if we want to use single apostrophe or double quotes then we can face issue. e.g.
+
+str4 = 'this is Jain University's session' 
+# For this one we cannot use single quotes as Python will get confused but we need to use double quotes.
+
+=> Similarly, if we want to write something in double quotes then we can use single quotes. e.g.
+
+str5 = '"Honda" make best cars in the world'
+
+=> Similarly, if we want to write something in multiple sentences in a single string then that is not possible so, in order to achieve this we use "Escape sequence characters". These are some special characters that are used to formatting like next line, tabs, etc. this can be achieved by using \n. e.g.
+
+str6 = "This is a string.\nWe are creating it in Python." 
+# Here, \n is for next line. Similarly, for tab you can use \t.
+print(str6)
+
+
+# Different operations on String:
+
+1. concatenation: This means combining two or more strings together. e.g.
+
+str1 = "Jain"
+str2 = "University"
+print(str1 + str2)
+
+# We can also store this in some variable and print it as shown below.
+finalStr = str1 + str2
+print(finalStr)
+
+2. length(): By using length function we can find the size of the string. e.g.
+
+str = "This is a string."
+print(len(str))
+
+=> Or, we can store it in some variable like shown below.
+size = len(str)
+print(size)
+
+
+# Indexing: When a string is created in Python then each character in a string gets its index value i.e. the position of that particular character. Just like in all other programming language in Python also indexing starts with zero.
+
+=> Why do we need indexing?
+Because it helps us to access individual character's of a string. e.g.
+
+str = "Jain University"
+ch = str[0]
+print(ch)
+print(str[6])
+
+Note: With the help of index you can only access characters but cannot modify it because Strings are immutable i.e. once created cannot be modified.
+
+
+# Slicing: It means accessing specific part of a string. It can be done by: stringName[startingIndex : endingIndex] where endingIndex is exclusive. e.g.
+
+str = "Jain University"
+print(str[1:4])
+
+=> If you want to access from startingIndex all the way up to the end of the string then you pass endingIndex + 1 or, you can also use len(str) instead of endingIndex or, also you can avoid passing endingIndex i.e. Python automatically assumes that you want to go all the way up to the end of the string. e.g. are shown below.
+
+print(str[1:4])
+print(str[5:15])
+print(str[5 : len(str)])
+print(str[5:])
+
+=> Similarly, if you miss passing startingIndex then Python automatically assumes that you want to start from zeroth index. e.g.
+
+print(str[:7])
+
+=> Also, Python supports -ve index slicing which is not available in other programming languages. Basically -ve indexing means you want start counting from len(str) i.e. from backside of the string. e.g.
+
+print(str[-3:-1])  # Here also endingIndex is exclusive.
+
+
+# String Functions: There are lots of function present in Python for Strings other than length. Some of them are explained below:
+
+str = "i AM a developer"
+
+1. print(str.startswith("i")) # Returns true if the string starts with given sub-string.
+
+2. print(str.endswith("er"))  # Returns true if the string ends with given sub-string.
+
+3. print(str.capitalize())  # Capitalizes 1st character of the string. It does not make change in the original string instead it created a copy of it with modification.
+print(str) # Proof that original string is not changed.
+
+=> In case if you want to modify the original string itself then you can store the new string into the same variable. e.g.
+
+str = str.capitalize() # Modifying original string
+print(str)
+
+4. print(str.replace("am", "was")) # This replace the old sub-string with new one.
+# This also does not modify the original string as strings are immutable.
+print(str)  # Proof that original string is unchanged.
+
+# => You can also do something like:
+print(str.replace("e", "o"))
+
+5. print(str.find("am"))
+# It searches for given sub-string and if found then returns 1st index of its occurrence and, if not found then returns -1.
+
+print(str.find("z"))
+
+=> In these methods don't think about -ve indexing of string as it works only with slicing, and not with these functions.
+
+6. print(str.count("am")) # This counts occurrences of the given sub-string in the string and return the count.
+
+print(str.count("a"))
+print(str.count("z")) # If the given character or sub-string is not found then returns zero.
+
+7. print(str.upper())  # Converts all characters of a string to upper case.
+
+8. print(str.lower())  # Converts all characters of a string to lower case.
+
+
+# Practice Questions:
+
+1. Write a Program to input user's first name & print its length.
+Solution:
+
+firstName = input("Enter your first name: ")
+
+print(len(firstName))
+
+2. Write a Program to find the occurrence of '$' in a String.
+Solution:
+
+str = "I had $200. I gave $20 to Ravi. What is the remaining amount with me?"
+
+print(str.count("$"))
+
+
+# Conditional Statements:
