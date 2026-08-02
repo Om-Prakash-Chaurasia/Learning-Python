@@ -538,3 +538,206 @@ print(str.count("$"))
 
 
 # Conditional Statements:
+
+=> For e.g. there are so lot of conditions like we can apply for driving license only if our age is 18 or above or on our marks which has grading like if our marks is 90 and above then we will get grade A and so on. All these conditions can also be be expressed in code too.
+
+=> In Python to express the conditions we use:
+1. if
+2. if...else
+3. elif
+
+Syntax:
+if (condition):
+    statement1
+elif (condition):
+    statement2
+else:
+    statementN
+
+e.g.
+
+age = 21
+
+if age >= 18:
+    print("You can apply for license") 
+    # Here you will get output as this statement but if I change the age value to 17 or smaller then there will be no output as we have not written else block.
+
+e.g.
+
+age = 16
+
+if age >= 18:
+    print("You can apply for license")
+else:
+    print("You are too your to drive")
+    # This will be printed as output as the value of age is smaller than 18.
+
+e.g. Lets take the example of traffic light in order to demonstrate elif.
+
+light = "red"
+
+if light == "red":
+    print("STOP")
+elif light == "green":
+    print("GO")
+elif light == "yellow":
+    print("WAIT")
+
+e.g. 
+
+light = "..."
+
+if light == "red":
+    print("STOP")
+elif light == "green":
+    print("GO")
+elif light == "yellow":
+    print("WAIT")
+else:
+    print("Traffic light is not working.")
+    # else is always written at the end of the if or elif as this block gets automatically executed if, none of above conditions are true.
+
+=> In conditional the block which satisfied the condition only gets executed, other block does not comes into picture, we can verify that with below example: e.g.
+
+light = "..."
+
+if light == "red":
+    print("STOP")
+elif light == "green":
+    print("GO")
+elif light == "yellow":
+    print("WAIT")
+else:
+    print("Traffic light is not working.")
+
+print("End of code.")
+
+=> We can write the same code as shown below: e.g.
+
+if light == "red":
+    print("STOP")
+if light == "green":
+    print("GO")
+if light == "yellow":
+    print("WAIT")
+
+=> Then what is the difference between if and elif?
+If we use if conditions then all if will get executed. Whereas, elif will come into picture only if, given if condition does not satisfy which brings us into conclusion that for writing elif we have to mandatorily write if. e.g.
+
+num = 5
+
+if num > 2:
+    print("Number greater than 2")
+if num > 3:
+    print("Number is greater than 3")
+
+# In the above example both statements are getting printed. But if we write the same code using elif then only 1st statement will get printed as elif gets checked only if, if condition is false.
+
+num = 5
+
+if num > 2:
+    print("Number greater than 2")
+elif num > 3:
+    print("Number is greater than 3")
+
+NOTE: whenever we are writing conditional then we have to give 4-space or 1-tab as 1-tab = 4-space, this things is know as indention in coding and Python strictly follows indention as we do not use { } in Python to separate blocks.
+
+Other e.g.
+
+Grade students based on marks:
+marks >= 90, grade = "A"
+90 > marks >= 80, grade = "B"
+80 > marks >= 70, grade = "C"
+70 > marks, grade = "D"
+
+Solution:
+
+# marks = 90
+marks = int(input("Enter your marks: "))
+
+if marks >= 90:
+    # print("Grade A")
+    grade = "A"
+elif marks >= 80 and marks < 90:
+    # print("Grade B")
+    grade = "B"
+elif marks >= 70 and marks < 80:
+    # print("Grade C")
+    grade = "C"
+elif marks < 70:
+    # print("Grade D")
+    grade = "D"
+else:
+    print("Invalid marks")
+
+print("Grade of the student -> ", grade)
+
+
+# Nested Conditional: This means putting one condition under another condition.
+
+=> Although nesting is not recommended, if we are nesting then also we should go more than 2-levels of nesting, as that makes code more complicate to understand and debug. In order to avoid nesting we can use logical operators.
+
+e.g. for nesting:
+
+age = 80
+
+# Here we are trying to validate whether the age is 80 >= age >= 18.
+if age >= 18:
+    if age >= 80:
+        print("You cannot drive")
+    else:
+        print("You can drive")
+else:
+    print("You cannot drive")
+
+=> Avoiding nesting using logical operator.
+
+age = 79
+
+# Here we are trying to validate whether the age is 80 >= age >= 18.
+if age >= 18 and age < 80:
+    print("You can drive")
+else:
+    print("You cannot drive")
+
+
+Practice Questions:
+
+1. Write a Program to check if a number entered by the user is odd or even.
+
+Solution:
+
+num = int(input("Enter a number: "))
+
+if num % 2 == 0:
+    print("Even")
+else:
+    print("Odd")
+
+2. Write a Program to find the greatest of 3 numbers entered by the user.
+
+Solution:
+
+num1 = int(input("Enter 1st number: "))
+num2 = int(input("Enter 2nd number: "))
+num3 = int(input("Enter 3rd number: "))
+
+if num1 > num2 and num1 > num3:
+    print("Num1 is greatest")
+elif num2 > num1 and num2 > num3:
+    print("Num2 is greater")
+else:
+    print("Num3 is greatest")
+
+3. Write a Program to check if a number is multiple of 7 or not.
+
+Solution:
+
+num = int(input("Enter a number: "))
+
+rem = num % 7
+if rem == 0:
+    print("Number is a multiple of 7")
+else:
+    print("Number is not multiple a of 7")
+

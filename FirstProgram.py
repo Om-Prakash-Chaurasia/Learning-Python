@@ -1,3 +1,7 @@
-str = "I had $200. I gave $20 to Ravi. What is the remaining amount with me?"
+num = int(input("Enter a number: "))
 
-print(str.count("$"))
+rem = num % 7
+if rem == 0:
+    print("Number is a multiple of 7")
+else:
+    print("Number is not multiple a of 7")
