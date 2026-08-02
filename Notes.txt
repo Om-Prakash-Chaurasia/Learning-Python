@@ -741,3 +741,161 @@ if rem == 0:
 else:
     print("Number is not multiple a of 7")
 
+
+# Lists and Tuples in Python: If you have done programming in other programming languages then you must have used Arrays. The equivalent of Array in Python is Lists and Tuples.
+
+1. Lists in Python: It is a built-in data type that stores set of values. It can store elements of different types i.e. we can store different data types in a single list whereas other program languages does not allow you to do this.
+
+Lets say if we want to store marks of students in a class then we have to create variables equal to number of students in that class which will make coding very much time consuming and tracking those variables would also be very difficult. e.g.
+
+marks1 = 45
+marks2 = 65
+marks3 = 54
+marks4 = 78
+marks5 = 69 # and so on.
+
+=> In order to simplify this Python provides an in-built data type called as list where we can stored multiple values in a single variable as shown below:
+
+marks = [45, 65, 54, 78, 69]
+
+=> A list has it own syntax as you can see above and it has so many properties and methods which are similar to String properties and methods, also we can print list and check its type as shown below.
+
+print(marks)
+print(type(marks))
+
+=> We can access individual element from a list as shown below:
+
+print(marks[0])
+print(marks[1])
+
+=> Printing the size of the list.
+
+print(len(marks))
+
+=> Storing different types of values in the same list also if you try to access the index which is not present in the list then it will throw error "IndexError: List index out of range". e.g.
+
+student = ["Om Prakash", 85, "Delhi"]
+
+print(student)
+print(student[0])
+print(student[1])
+print(student[2])
+print(student[3]) # This line will throw error as 3rd index is not present in the list.
+
+# As we have discussed above that Lists and Strings are similar, but these are not same. The major difference is that Stings in Python as immutable but Lists are mutable i.e. Lists values can be changed in place. e.g.
+
+student = ["Om Prakash", 85, "Delhi"]
+
+print(student)
+print(student[0])
+print(student[1])
+print(student[2])
+
+student[0] = "Chaurasia"
+print(student)
+print(student[0])
+
+=> List Slicing: Similar to String we also have slicing in List which is similar to String Slicing and in list also ending index is not inclusive and it also supports -ve index just like String Slicing. e.g.
+
+marks = [85, 94, 76, 63, 48]
+
+print(marks[1:4])
+print(marks[:4])
+print(marks[1:])
+
+# Slicing on behalf of -ve index:
+
+print(marks[-3:-1])
+print(marks[-3:5])
+
+
+# Methods in Lists:
+
+list = [2, 1, 3]
+
+1. append(): It adds one element at the end of the list.
+list.append(4) # At a time only one value can be appended.
+print(list)
+
+=> If you do print(list.append(4)) then it will return "None" as it does not return anything because it is making change in the original list but the same is not applicable for Strings because String is immutable.
+
+2. sort(): It arranges list items in ascending order by default.
+list.sort()
+print(list)
+
+# For sorting in descending order:
+list.sort(reverse=True)
+
+=> If you do print(list.sort()) then it will return "None", the reason is same as above.
+
+=> Sorting can also be applied on characters or strings in the list. e.g.
+
+list = ["lichi", "banana", "apple", "mango"]
+
+print(list)
+list.sort()
+print(list)
+
+e.g.
+
+list = ["u", "e", "i", "o", "a"]
+
+print(list)
+list.sort()
+print(list)
+
+3. reverse(): It reverses the list. e.g.
+
+list.reverse()
+print(list)
+
+4. insert(): It is used to insert a item at specific index in a list.
+list.insert(3, "vowels") # Here also you can insert only one item at a time.
+print(list)
+
+5. remove(): It removes the first occurrence of the given item.e.g.
+
+list.remove("a")
+print(list)
+
+6. pop(): It removes the item from the list at given index.
+list.pop(3)
+print(list)
+
+7. copy(): It makes the shallow copy of the list.
+
+print("List: ",list)
+list2 = list.copy()
+print("List 2: ", list2)
+
+list2.append(44)
+print("List 2: ", list2)
+print("List: ", list)
+
+=> Also, we can directly copy list as shown below but it is different from copy() method above. Find the difference and let me know.
+
+print("List: ", list)
+list2 = list
+print("List 2: ", list2)
+
+list2.append(44)
+print("List 2: ", list2)
+print("List: ", list)
+
+=> count(), extend(), and clear() methods, discover by yourself.
+
+
+2. Tuples in Python: It is a built-in data type that lets us create "immutable" sequence of values. Unlike Lists, and like String, Tuples can not be changed once created.
+
+=> A Tuple has its on syntax like Lists, which is shown below. e.g.
+
+tuple = (87, 64, 33, 95, 76)
+print(tuple)
+print(type(tuple))
+
+=> Accessing elements from tuple is same as list.
+print(tuple[0])
+print(tuple[1])
+
+tuple[0] = "vowels"  # This operation is not possible in Tuple as Tuples are immutable. It will throw error "TypeError"
+
