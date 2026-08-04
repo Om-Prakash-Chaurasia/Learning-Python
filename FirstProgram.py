@@ -1,7 +1,4 @@
-tuple = ("u", "a", "e", "i", "o", "a")
+grades = ["C", "D", "A", "A", "B", "B", "A"]
 
-print(tuple)
-print(type(tuple))
-
-print(tuple[0])
-print(tuple[1])
+grades.sort()
+print(grades)

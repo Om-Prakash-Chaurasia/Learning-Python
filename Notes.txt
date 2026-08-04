@@ -897,5 +897,150 @@ print(type(tuple))
 print(tuple[0])
 print(tuple[1])
 
-tuple[0] = "vowels"  # This operation is not possible in Tuple as Tuples are immutable. It will throw error "TypeError"
+tuple[0] = "vowels"  # This operation is not possible in Tuple as Tuples are immutable. It will throw error "TypeError: 'tuple' object does not support item assignment".
 
+=> We can also create an empty tuple and it is valid. e.g.
+
+tup = ()
+print(tup)
+print(type(tup))
+
+=> If we are creating a single value tuple then we must give comma after the element (mandatory) or else Python will treat it like an Integer because we can also write Integer like (1+2). e.g. of single value tuple.
+
+# Wrong way to create single value tuple.
+tup = (1) # This will be treated as Integer.
+print(tup)
+print(type(tup))
+
+tup = ("hello") # This will be treated as type String.
+print(tup)
+print(type(tup))
+
+# Correct way to create single value tuple.
+tup = (1,)
+print(tup)
+print(type(tup))
+
+tup = ("hello",)
+print(tup)
+print(type(tup))
+
+=> But if we have multiple values in a tuple then putting comma at the end is optional. e.g.
+
+tuple = ("u", "a", "e", "i", "o", "a",)
+
+print(tuple)
+print(type(tuple))
+
+OR,
+
+tuple = ("u", "a", "e", "i", "o", "a")
+
+print(tuple)
+print(type(tuple))
+
+
+# Slicing in Tuple: Slicing works exactly same in Tuple as it works in String or List and here also endingIndex is exclusive. e.g.
+
+tuple = ("u", "a", "e", "i", "o", "a")
+
+print(tuple)
+print(tuple[1:3])
+print(tuple[:3])
+print(tuple[2:])
+
+
+# Tuple Methods: There are two very important methods in tuple which we will discuss here.
+
+1. index(): It gives the first occurrence of that given element from the tuple and if element does not exists then it throws "ValueError: tuple.index(x): x not in tuple". e.g.
+
+print(tuple.index("e"))
+print(tuple.index("z"))
+
+2. count(): It gives the total count of the given element in the tuple and if element does not exists then it returns zero. e.g.
+
+tuple = (2, 4, 2, 6, 3, 7, 2)
+
+print(tuple)
+print(tuple.count(2))
+
+e.g.
+
+tuple = ("a", "e", "i", "o", "u")
+
+print(tuple)
+print(tuple.count("e"))
+
+
+# Practice Questions:
+
+1. Write a Program to ask the user to enter names of their 3 favorite movies & store them in a list.
+
+Solution:
+
+movie1 = input("Enter 1st movie: ")
+movie2 = input("Enter 2nd movie: ")
+movie3 = input("Enter 3rd movie: ")
+
+movieList = []
+movieList.append(movie1)
+movieList.append(movie2)
+movieList.append(movie3)
+
+print(movieList)
+
+=> Alternatively: Here we don't have to create 3 different variables, one variable can do the work.
+
+movieList = []
+
+movie = input("Enter 1st movie: ")
+movieList.append(movie)
+movie2 = input("Enter 2nd movie: ")
+movieList.append(movie)
+movie3 = input("Enter 3rd movie: ")
+movieList.append(movie)
+
+print(movieList)
+
+=> Alternatively: We can append all the movies directly in movieList without creating any other variable.
+
+movieList = []
+
+movieList.append(input("Enter 1st movie: "))
+movieList.append(input("Enter 2nd movie: "))
+movieList.append(input("Enter 3rd movie: "))
+
+print(movieList)
+
+
+2. Write a Program to check if a list contains a palindrome of elements. (Hint: use copy() method).
+
+Solution:
+
+list = [1, 2, 3, 2, 1]
+
+newList = list.copy()
+newList.reverse()
+
+if list == newList:
+    print("Palindrome")
+else:
+    print("Not Palindrome")
+
+
+3. Write a Program to count number of students with the "A" grade in the following tuple.
+
+Solution:
+
+grades = ("C", "D", "A", "A", "B", "B", "A")
+
+print(grades.count("A"))
+
+4. store above values in a list and sort them from "A" to "D".
+
+Solution:
+
+grades = ["C", "D", "A", "A", "B", "B", "A"]
+
+grades.sort()
+print(grades)
