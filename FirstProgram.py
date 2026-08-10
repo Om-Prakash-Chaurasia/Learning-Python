@@ -1,4 +1,8 @@
-grades = ["C", "D", "A", "A", "B", "B", "A"]
+student = {
+    "name": "Sonu Chaurasia",
+    "subjects": {"physics": 97, "chemistry": 98, "maths": 95},
+}
 
-grades.sort()
-print(grades)
+print(student)
+student.update({"city": "Delhi", "age": 26})
+print(student)

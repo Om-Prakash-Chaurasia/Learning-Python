@@ -66,7 +66,7 @@ print(7 / 5)
 
 
 # Variables in Python:
-=> A variable in a name given to a memory location in a program. e.g.
+=> A variable is a name given to a memory location in a program. e.g.
 
 name = "Om Prakash"  # This variable has String value.
 age = 26  # This variable has Integer value.
@@ -1044,3 +1044,175 @@ grades = ["C", "D", "A", "A", "B", "B", "A"]
 
 grades.sort()
 print(grades)
+
+
+# Dictionary & Set in Python:
+These are very important data structures (built-in data types) in Python which we use very frequently while coding in Python. We will discuss about their special properties and different methods.
+
+
+# Dictionary in Python: It is used to store data values in key:value pairs. (Like a JSON in JS or HashMap in other Languages). These are unordered, mutable and does not allow duplicate keys. We use {} to write dictionary. Like list, dictionary is also mutable. e.g.
+
+details = {
+    "name": "Om Prakash",
+    "address": "123 ABC Street",
+    "contact": 9876543210,
+    "age": 26,
+    "is_adult": True,
+    "marks": 94.4,
+}
+
+=> Here, value can have any data type but key should always be a of immutable data type like String, Tuple, Integer, Float, Boolean, etc. but mostly when we write dictionary then we use String as key, so there won't be much confusion. And keys cannot be repeated.
+
+print(details)
+print(type(details))
+
+Other e.g.
+
+info = {
+    "name": "Om Prakash",
+    "subjects": ["Python", "Java", "JS"],
+    "topics": ("dictionary", "set"),
+}
+
+print(info)
+
+=> Since, dictionary is an unordered structure, it does not have index. We can access values from dictionary my using keys as shown below.
+
+print(info["name"])
+print(info["subjects"])
+print(info["topics"])
+
+=> In case, if surname is not present then it will throw KeyError: 'keyName'.
+
+# We can also update the value of existing key as shown below.
+
+info["name"] = "Sonu Chaurasia"
+print(info)
+
+=> We can also add a new key: value into the existing dictionary. e.g.
+
+info = {
+    "name": "Om Prakash",
+    "subjects": ["Python", "Java", "JS"],
+    "topics": ("dictionary", "set"),
+}
+
+print(info)
+
+info["collegeName"] = "Jain University"
+print(info)
+
+=> As we have discussed earlier, we can not use existing key as new key because in that case it will override the value of existing key.
+
+If we want we can create an empty dictionary too and later on we can add the key: value to it. e.g.
+
+empty_dict = {}
+print(empty_dict)
+
+empty_dict["name"] = "Om Prakash Chaurasia"
+empty_dict["age"] = 26
+print(empty_dict)
+
+
+# Nested Dictionaries: Just like conditionals we can also nest dictionaries too. It works exactly like nested object or json in JS. e.g.
+
+student = {
+    "name": "Sonu Chaurasia",
+    "subjects": {"physics": 97, "chemistry": 98, "maths": 95},
+}
+
+print(student)
+
+=> If I just want to access subjects then we can do that too.
+
+print(student["subjects"])
+
+=> And, if we want to access marks of a particular subject then we can access that too. e.g.
+
+print(student["subjects"]["chemistry"])
+
+# So, we saw how we can create nested dictionaries and how to access the specific key from that nested dictionary.
+
+
+# Dictionary Methods:
+
+1. keys(): Returns all keys but not nested keys. Returned keys will look like a list which we can actually convert into list by type casting. e.g.
+
+print(student.keys()) # Printing keys.
+print(list(student.keys())) # Converting dictionary keys into List by type casting.
+
+2. len() : We can also find the total number of keys in a dictionary by using len() method, but it does not count nested keys. e.g.
+
+print(len(student))
+
+=> Or else, we can convert the keys into list and then use len() method to find number of keys.
+
+print(len(list(student.keys()))) # Total keys.
+print(len(list(student.values()))) # Total values.
+
+3. values(): Returns all values but not nested values. Returned values will look like a list which we can convert into list by type casting. e.g.
+
+print(student.values()) # Printing values.
+print(list(student.values())) # Converting dictionary values into List by type casting.
+
+=> Here, also we can check the length of values as shown in the previous len() method. From this e.g. you can also see that one data type can be stored in another data type. Here, inside a List type a dictionary is also getting stored which is the nested dictionary.
+
+4. items(): Returns all (key, val) pairs like tuples. This can also be converted as List by type casting.
+
+print(student.items()) # Printing (key, value).
+print(list(student.items())) # Converting as list.
+
+=> We can access these tuple with index value.
+
+pairs = list(student.items())
+print(pairs[0])
+print(pairs[1])
+
+5. get("key"): Returns the value according to key. e.g.
+
+print(student.get("name"))
+
+=> Now, we have two ways to print value for the given key, one which we saw now which is by using in-built method and the one which we saw previous i.e.
+
+student["name"]
+
+# But, what is the difference between these two ways?
+The difference is that: student["name2"] will throw error is key does not exists whereas, student.get("name2") returns "None" if key does not exists.
+
+=> Now, if you think that it's a very small change that won't impact our program. We will not write the key which does not exists in dictionary.
+
+This is okay for small programs but when we work with real time applications which are definitely big programs then there it is not possible to keep track of all keys in the dictionary, and any error cause will interrupt the entire code written below that error causing line as Python is interpreted language.
+
+Also consider that if you are building a backend with Python and keys are coming from frontend then how will you keep the track of that?
+So, it is always good to use a non-error causing method or you have to handle all errors explicitly using try...catch block and so on.
+
+6. update(): Inserts the specified items to the dictionary. e.g.
+
+print(student) # Before update.
+student.update({"city": "Delhi"})
+print(student) # After update.
+
+=> Same thing can also be achieved in other way i.e. we can create a new dictionary and then we can add that new dictionary to the existing one which will give us the same output. e.g. is shown below.
+
+print(student)
+new_Dict = {"city": "Delhi", "age": 26}
+student.update(new_Dict)
+print(student)
+
+# Now, we have two different ways to add items in the dictionary. One which we have already seen earlier i.e. empty_dict["age"] = 26 and the current one which is by using update method.
+
+=> The advantage of using update method is that we can insert multiple key value pairs at once, which is not possible in the previous ways.
+
+# Note:
+
+print(student)
+new_Dict = {"name": "Keshav", "age": 26}
+student.update(new_Dict)
+print(student)
+
+=> In this ways, even if you are creating a new dictionary and updating does not mean that you can add existing key again, if you try doing that then then previous value will be overridden.
+
+We have already covered the most commonly used methods of dictionary. It will be very rare that you will use something outside these methods and also if you have to use then you can do it easily if you have understood and tried these methods.
+
+
+# Set in Python:
