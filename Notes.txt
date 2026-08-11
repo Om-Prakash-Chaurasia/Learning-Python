@@ -153,6 +153,7 @@ print(none)
 
 
 # 2. Non-primitive data type: Also known as Derived data type. These can hold multiple values in a single variable. It uses variable amount of memory.
+
 # i. list: An ordered, mutable sequence of items that allows duplicate elements and is written in []. This is equivalent to writing and array in JS. e.g.
 
 list = [1, 2, "apple"]
@@ -163,12 +164,12 @@ print(list)
 tuple = (10, 20, 30)
 print(tuple)
 
-# iii. dict: This stands for Dictionary. It is an un-unordered, mutable collection of key-value pairs and is written in {}. This is equivalent to writing JSON in JS. e.g.
+# iii. dict: This stands for Dictionary. It is an un-ordered, mutable collection of key-value pairs and is written in {}. This is equivalent to writing JSON in JS. e.g.
 
 dict = {"name": "Alice", "age": 25}
 print(dict)
 
-# iv. set: An unordered collection of unique, mutable items that does not allow duplicates. It is also written in {}. e.g.
+# iv. set: It is an unordered collection of unique, items that does not allow duplicates. Set itself is mutable, however, the elements stored inside a set must be immutable meaning, we can store all immutable data types in Set but we cannot store mutable data types in Set such as List and Dictionary. It is also written in {}.
 
 set = {1, 2, 3}
 print(set)
@@ -1215,4 +1216,170 @@ print(student)
 We have already covered the most commonly used methods of dictionary. It will be very rare that you will use something outside these methods and also if you have to use then you can do it easily if you have understood and tried these methods.
 
 
-# Set in Python:
+# Set in Python: It is an unordered collection of unique, items that does not allow duplicates. Set itself is mutable, however, the elements stored inside a set must be immutable meaning, we can store all immutable data types in Set but we cannot store mutable data types in Set such as List and Dictionary as well as Set itself. It is also written in {}. e.g.
+
+collection = {1, 2, 3, "check", "hello", "world", None, "world"}
+
+print(collection)
+print(type(collection))
+
+=> Unlike dictionary, a set only stores values in it not key: value pair. In case of duplicate values in set it ignores duplicates while printing. And also we can check the length of a set and even this len() method also ignores duplicates values. e.g.
+
+print(len(collection))
+
+# How create an empty Set?
+If you do remember, if we do like set = {} # The type of this will be dictionary as we have discussed earlier. Then how do we create empty Set?
+
+The correct way to define an empty set is: setName = set() . e.g.
+
+set = set()
+
+print(set)
+print(type(set))
+
+
+# Set Methods:
+
+1. add(): Adds an element in a set. e.g.
+
+set = set()
+set.add("Kawasaki Ninja H2R")
+set.add("Honda CBR 1000RR")
+set.add("Yamaha R1")
+set.add("Kawasaki Ninja H2R") # Since this value is duplicate it won't get added to set again.
+
+print(set)
+
+=> We can add other data types too in set but it should be immutable. e.g. adding Tuple in set.
+
+set.add((1, 2, 3))
+print(set)
+
+=> But, if we try to add List in set it will throw TypeError: cannot use 'list' as a set element (unhashable type: 'list') here, unhashable type means data types whose elements / values can change be changed and if element / values are changing then their hash value keeps on changing which is not acceptable by Set. e.g.
+
+set.add([9, 8, 7])
+print(set)
+
+2. remove(): Removes an element from set. e.g.
+
+set.remove("Kawasaki Ninja H2R")
+print(set)
+
+set.remove("Kawasaki Ninja H2R") # Since this item does not exist in set it will throw "KeyError", this indicates thats the key and values are same in set.
+print(set)
+
+3. clear(): This is used to remove all the elements from the set. e.g.
+
+print(set)
+print(len(set)) # Here, length is 4 according to our example.
+set.clear()
+print(len(set)) # Here, set has been emptied so, the length is zero.
+
+4. pop(): It removes a random element from the set. e.g.
+
+set = set()
+set.add("Kawasaki Ninja H2R")
+set.add("Honda CBR 1000RR")
+set.add("Yamaha R1")
+set.add((1, 2, 3))
+
+print(set.pop())
+print(set)
+
+=> Its use case is that if we want to generate a random value from unique elements then we can use this.
+
+5. union(): It combines two sets values and returns new Set. e.g.
+
+set1 = {1, 2, 3, 4}
+set2 = {3, 4, 5, 6}
+
+print(set1.union(set2))
+print(set1) # Here, there is not change in set1 and,
+print(set2) # No, change in set2 too. This proves that union() returns new Set as output.
+
+6. intersection(): It combines common values of two sets and returns a new Set. e.g.
+
+print(set1.intersection(set2))
+
+# So, we have covered most common methods of Set. There are many more methods which you can learn while exploring Set in Python.
+
+
+# Practice Questions:
+
+1. Store following word meaning in a Python dictionary:
+    table: "a piece of furniture", "list of facts & figures"
+    cat: "a small animal"
+
+Solution:
+
+dictionary = {
+    "cat": "a small animal",
+    "table": ["a piece of furniture", "list of facts & figures"], # Here, instead of list we could have used tuple too.
+}
+
+print(dictionary)
+
+
+2. You are given a list of subjects from students. Assume one classroom is required for one subject. How many classrooms are needed by all students.
+    "python", "java", "C++", "python", "javascript", "java", "python", "java", "C++", "C"
+
+Solution:
+
+subjects = {
+    "python",
+    "java",
+    "C++",
+    "python",
+    "javascript",
+    "java",
+    "python",
+    "java",
+    "C++",
+    "C",
+}
+
+print(len(subjects))
+print(subjects)
+
+=> Make sure that keys entered in Set are same if keys are repeating otherwise it will be treated as separate key as Python is case sensitive language.
+
+
+3. Write a Program to enter marks of 3 subjects from the user and store then in a dictionary. Start with an empty dictionary & add one-by-one. Use subject name as key & marks as value.
+
+Solution:
+
+marksheet = {}
+
+x = int(input("Enter Physics marks: "))
+marksheet.update({"Physics": x})
+
+x = int(input("Enter Maths marks: "))
+marksheet.update({"Maths": x})
+
+x = int(input("Enter Chemistry marks: "))
+marksheet.update({"Chemistry": x})
+
+print(marksheet)
+
+
+4. Figure out a way to store 9 & 9.0 as separate values in the set. (You can take help of built-in data types)
+
+Solution:
+
+values = {9, 9.0}
+
+print(values)
+# Python is designed to treat these kind of values as same 9 and 9.0, so we cannot store it separately in set.
+
+=> What we can do is one value we can store it as a String. So,
+
+values = {9, "9.0"} # This is one way to do.
+print(values)
+
+=> Alternatively we can use tuple so that we can store the value along with their data type name. e.g.
+
+values = {
+    ("float", 9.0),
+    ("int", 9)
+}
+print(values)
