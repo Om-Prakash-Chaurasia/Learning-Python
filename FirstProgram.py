@@ -1,6 +1,12 @@
-n = int(input("Enter a number: "))
+fruits = ["apple", "mango", "banana", "guava", "strawberry", "pineapple"]
 
-fact = 1
-for i in range(1, n + 1, 1):
-    fact = fact * i
-print("Factorial:", fact)
+
+def printList(list, index=0):
+    if index == len(list):
+        return
+
+    print(list[index], end=" ")
+    printList(list, index + 1)
+
+
+printList(fruits, 0)

@@ -1751,3 +1751,221 @@ fact = 1
 for i in range(1, n + 1, 1):
     fact *= i
 print("Factorial:", fact)
+
+
+# Functions and Recursion:
+
+# Functions in Python: These are block of code that perform a specific task. Do not get confused between loops and functions. Functions are called manually whereas, loops executes automatically. Functions helps us to avoid rewriting the core logic again and again also known as redundancy / repeatability.
+
+Syntax:
+    def functionName(param1, param2, ...): # Defining function
+        # some work
+        return value
+
+    functionName(agr1, arg2, ...) # Function call 
+
+e.g. This example is of parameterized function.
+
+def calcSum(a, b):
+    sum = a + b
+    print(sum) # Printing the sum. Instead of printing the sum we can also return sum from here.
+    return sum
+
+calcSum(5, 7) # Simply calling a function.
+print(calcSum(5, 7)) # In case, if you return a value from function do like this.
+
+=> Same function can be written in various ways.
+
+def calcSum(a, b):
+    return a + b
+
+print(calcSum(5, 7))
+
+=> We can also write a function which does not take any argument which is also known as non-parameterized function. e.g. function to print "hello world".
+
+def print_info():
+    print("Hello World!")
+
+print_info()
+
+Other e.g. Printing average of three numbers.
+
+def printAvg(a, b, c):
+    avg = (a + b + c) / 3
+    print(avg)
+
+printAvg(3, 5, 7)
+
+
+# Types of functions in Python:
+
+1. Built-in functions: These are already existing function in Python. We are used several built-in function till now like print(), len(), type(), range(), etc. These are also known as methods. e.g.
+
+print("Jain University")
+# This is a function which take string arguments. It also takes two more arguments called "sep" which means separator which is "," which means " " and empty space between the arguments and "end" arguments which is "\n" by default which you can change as shown below.
+
+print("Jain University", "Om Prakash")
+
+print("Jain University")
+print("Om Prakash")
+
+print("Jain University", end=" ") # Changing end from new line to " " space
+print("Om Prakash")
+
+2. User defined functions: This are functions which we create manually like we saw above i.e. print_info(), printAvf(), calcSum(), etc.
+
+
+# Default parameters: Let's consider a case where a user defines a function with parameters (a,b) but while calling he/she is not passing any arguments or passing only one arguments then we will get TypeError: calcProd() missing 2 required positional arguments: 'a' and 'b'. e.g.
+
+def calcProd(a, b):
+    print(a * b)
+    return a * b
+
+calcProd()
+
+=> So, in order to avoid this scenario we use default parameters. e.g.
+
+def calcProd(a=1, b=1):
+    print(a * b)
+    return a * b
+
+calcProd()
+
+=> If you want to make only one parameter as default then you can do that too. e.g.
+
+def calcProd(a, b=2):
+    print(a * b)
+    return a * b
+
+calcProd(3)
+
+# But you cannot do opposite as shown below, as it will throw error i.e. always first non default parameter should come and then default parameter can come.
+
+def calcProd(a = 3, b):
+    print(a * b)
+    return a * b
+
+calcProd(5)
+
+=> In case if you already have default parameters set and if someone passes new values then old values will be overridden with new ones.
+
+
+# Practice Questions:
+
+1. Write a Program to print the length of a list. (list is the parameter)
+
+Solution:
+
+cities = ["delhi", "bangalore", "chennai", "hyderabad", "kolkata", "mumbai", "gurgaon"]
+heros = ["thor", "ironman", "captain america", "spider-man", "falcon"]
+
+def length(list):
+    print(len(list))
+
+length(cities)
+length(heros)
+
+2. Write a Program to print the elements of a list in a single line. (list is the parameter)
+
+Solution:
+
+cities = ["delhi", "bangalore", "chennai", "hyderabad", "kolkata", "mumbai", "gurgaon"]
+heros = ["thor", "ironman", "captain america", "spider-man", "falcon"]
+
+def print_list(list):
+    for item in list:
+        print(item, end=" ")
+
+print_list(cities)
+print() # Just to remove trailing character "%" which we will talk about later.
+print_list(heros)
+print()
+
+3. Write a Program to find the factorial on n. (n is the parameter)
+
+Solution:
+
+def print_fact(n):
+    fact = 1
+    for i in range(1, n + 1):
+        fact *= i
+    print(fact)
+
+print_fact(5)
+
+4. Write a Program to convert USD to INR.
+
+Solution:
+
+def currConvertor(usd_val):
+    inr_val = usd_val * 83
+    print(usd_val, "USD =", inr_val, "INR")
+
+
+currConvertor(5)
+
+5. Write a Program to print odd or even using function.
+
+Solution:
+
+def oddOrEven(n):
+    if n % 2 == 0:
+        print("EVEN")
+    else:
+        print("ODD")
+
+oddOrEven(45)
+
+
+# Recursion in Python: When a function calls itself repeatedly is called as recursion. It works like a loop you can say it is an alternative for loop as whatever can be done with loop can also be done with recursion too and vice-versa. But in some cases we prefer loop and some places we prefer recursion. e.g.
+
+def printNum(n):
+    # Base case (aka terminating condition for recursion). It is mandatory or else infinite recursion will happen.
+    if n == 0:
+        return
+
+    print(n) # Work done
+    printNum(n - 1)  # Recursion (A function calling itself) / Recursive call
+
+printNum(5)  # Function call
+
+Other e.g. Returning a factorial of n using recursion.
+
+def printFact(n):
+    if n == 0 or n == 1:
+        return 1
+    else:
+        return n * printFact(n - 1)
+
+print(printFact(6))
+
+
+# Practice Questions:
+
+1. Write a recursive function to calculate the sum of first n natural numbers.
+
+Solution:
+
+def calcSum(n):
+    if n == 0:
+        return 0
+
+    return n + calcSum(n - 1)
+
+
+print(calcSum(5))
+
+2. Write a recursive function to print all elements in a list. (Hint: Use list and index as parameters.)
+
+Solution:
+
+fruits = ["apple", "mango", "banana", "guava", "strawberry", "pineapple"]
+
+def printList(list, index=0):
+    if index == len(list):
+        return
+
+    print(list[index], end=" ")
+    printList(list, index + 1)
+
+printList(fruits, 0)
