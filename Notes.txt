@@ -1969,3 +1969,135 @@ def printList(list, index=0):
     printList(list, index + 1)
 
 printList(fruits, 0)
+
+
+# File Input - Output in Python: Python can be used to perform  operations on a file (read and write data).
+Here, we will be studying: 
+How can we open a file? 
+How can we read data from a file? 
+How can we write data in a file? 
+How can we close a file? 
+How can we delete a file?
+
+=> All through Python code.
+
+All files can be categorized into two types:
+1. Text Files: In this type of files data is stored in the form of characters. e.g. .txt, .docx, .log, etc.
+2. Binary Files: Tn this type data is stored in any form other than text. e.g. .mp4, .mov, .png, .jpeg, etc.
+
+NOTE: No matter what kind of file it is, when it goes into memory it is stored in the form of bits i.e. 0's and 1's just on the surface level we have classified as Text and Binary files.
+
+
+# Open, read and close file operations:
+For this we use built-in function of Python.
+
+Syntax:
+    f = open("file_name", "mode")
+    # Here the file name should be complete i.e. along with extension like sample.txt, demo.docx.
+    # mode has to be passed i.e. r: read mode meaning, we are just going to read the file or w: write mode meaning, we are going to make some changes in the file. If we don't pass any mode then bu default Python assumes we are going to read the file.
+
+e.g. Lets create a file name demo.txt and put some data in it and then we will try to do some operations on it.
+
+f = open("demo.txt", "r")  # This is how you open a file in read mode.
+
+# The above line can also be written as:
+f = open("demo.txt", "rt")  # This is how you open a file in text-read mode.
+
+data = f.read()  # Reading data from file.
+print(data)  # Printing the data of the file.
+print(type(data))  # Looking for what type of data is stored in the file.
+
+f.close()  # Closing the file after use.
+
+=> Now, there are various modes present in the file mode lets take about some of the modes.
+1. "r" => open file for reading (default).
+2. "w" => open file for writing, truncating the file first, meaning, first all data of the file is deleted and then new data is added.
+3. "x" => creating a new file and opening it for writing.
+4. "a" => open file for writing, appending to the end of the file if it exists meaning, without deleting the old data in the file and simply add new data. (We will talk about this in a while)
+5. "b" => opens the file in binary mode.
+6. "t" => opens the file in text mode.
+7. "+" => open a disk file for updating (reading and writing) i.e. if we write "r+" that means we want to read as well as write in the file, similarly "w+" means we want to write as well as read the file and so on.
+
+=> Now, if you have noticed in our previous example then we have not mentioned "t" in the mode because by default the file is opened in text mode only. If you want to open the file in binary mode then you have to combine two modes together as shown below.
+
+f = open("demo.txt", "rb")  # This is how you open a file in binary-read mode.
+
+data = f.read()
+print(data)
+
+f.close()
+
+=> If you want to read some specific characters from the file then that is also possible. e.g.
+
+f = open("demo.txt", "r")
+
+data = f.read(5) # Reads only first 5 characters from the file.
+print(data)
+
+f.close()
+
+=> We can also read the file line-by-line. e.g.
+
+f = open("demo.txt", "r")
+
+line1 = f.readline()  # Reads the file line-by-line i.e. one line at a time.
+print(line1)
+#  Notice one thing that after reading line one then one extra empty line also getting printed. It is because by default there is \n character present in the readline method.
+
+line2 = f.readline()  # Reads line two only.
+print(line2)
+
+f.close()
+
+=> Notice the code below which is different from above code.
+
+f = open("demo.txt", "r")
+
+data = f.read()
+print(data)
+
+line1 = f.readline()  # Reads the file line-by-line i.e. one line at a time.
+print(line1)
+#  Notice one thing that after reading line one then one extra empty line also getting printed. It is because by default there is \n character present in the readline method.
+
+line2 = f.readline()  # Reads line two only.
+print(line2)
+
+f.close()
+
+=> I you see the output of above code you will notice that the data variable is getting printed but line1 and line2 are just printing white spaces. It is because, once the file is completely read the pointer which is moving while reading the file has already at the end of the file and line1 and line2 are after that that means there is no further data in the file which will be pointed by line1 and line2 so it is simply printing white spaces. It is just like trying to print something after all data is printed in that case only white spaces are printed. If you don't want this to happen then you will have to close the file and reopen it and then do the operations.
+
+
+# Writing to a file: Here, we have 2 modes that is "w" and "a", where "w" will delete all data in the file and then writes data and "a" will write data in the same file without deleting old data. e.g.
+
+=> "w" mode:
+
+f = open("demo2.txt", "w")
+
+f.write("I want to learn Springboot in the future.")
+
+f.close()
+
+=> "a" mode:
+
+f = open("demo2.txt", "a")
+
+f.write("Then I want to learn AWS") 
+# If you notice this data is appended in the same line. If you want to add it to next line then use \n.
+
+f.close()
+
+Other e.g.
+
+f = open("demo2.txt", "a")
+
+f.write("\nAfter that I want to learn System Design.")
+
+f.close()
+
+=> This is how we can override data of a file or append the data to the file. Also, one interesting thing is that if the file in which you are trying to write does not exist then Python dy default creates that file for you, i.e. you don't have to explicitly create that file. e.g.
+
+f = open("sample.txt", "w") # Trying to open a file in write mode which does not exists.
+f.close()
+
+=> As soon as you run the above code sample.txt will get created automatically.
