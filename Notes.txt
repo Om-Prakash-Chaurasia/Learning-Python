@@ -311,7 +311,7 @@ a = "2"  # This is String value.
 b = 4.25  # This is Float value.
 
 sum = a + b
-# Sum will throw error as it cannot directly convert result into different data type so, we need to manually convert String into Integer or Float.
+# Sum will throw error as it cannot directly convert result into different data type so, we need to manually convert String into Integer or Float. It will throw TypeError: can only concatenate str (not "float") to str.
 print(sum)
 
 After Casting:
@@ -369,6 +369,7 @@ print("marks=", marks)
 # Practice Questions:
 
 1. Write a Program to input 2 numbers & print their sum.
+
 Solution:
 
 num1 = int(input("Enter num1: "))
@@ -378,6 +379,7 @@ sum = num1 + num2
 print("Sum =", sum)
 
 2. Write a Program to input side of a square & print its area.
+
 Solution:
 
 side = float(input("Enter length: "))
@@ -386,6 +388,7 @@ area = side * side
 print("Area of square =", area)
 
 3. Write a Program to input 2 floating point numbers & print their average.
+
 Solution:
 
 num1 = float(input("Enter num1: "))
@@ -393,7 +396,8 @@ num2 = float(input("Enter num2: "))
 
 print("Average =", (num1 + num2) / 2)
 
-4. Write a Program to input 2 int numbers, a and b. Print True if a is grater than or equal to b. If not print False.
+4. Write a Program to input 2 int numbers, a and b. Print True if a is greater than or equal to b. If not print False.
+
 Solution:
 
 a = int(input("Enter num1: "))
@@ -540,7 +544,7 @@ print(str.count("$"))
 
 # Conditional Statements:
 
-=> For e.g. there are so lot of conditions like we can apply for driving license only if our age is 18 or above or on our marks which has grading like if our marks is 90 and above then we will get grade A and so on. All these conditions can also be be expressed in code too.
+=> For e.g. there are lot of conditions like we can apply for driving license only if our age is 18 or above or on our marks which has grading like if our marks is 90 and above then we will get grade A and so on. All these conditions can also be be expressed in code too.
 
 => In Python to express the conditions we use:
 1. if
@@ -548,9 +552,9 @@ print(str.count("$"))
 3. elif
 
 Syntax:
-if (condition):
+if condition:
     statement1
-elif (condition):
+elif condition:
     statement2
 else:
     statementN
@@ -676,7 +680,7 @@ print("Grade of the student -> ", grade)
 
 # Nested Conditional: This means putting one condition under another condition.
 
-=> Although nesting is not recommended, if we are nesting then also we should go more than 2-levels of nesting, as that makes code more complicate to understand and debug. In order to avoid nesting we can use logical operators.
+=> Although nesting is not recommended, if we are nesting then also we should not go more than 2-levels of nesting, as that makes code more complicate to understand and debug. In order to avoid nesting we can use logical operators.
 
 e.g. for nesting:
 
@@ -2100,4 +2104,216 @@ f.close()
 f = open("sample.txt", "w") # Trying to open a file in write mode which does not exists.
 f.close()
 
-=> As soon as you run the above code sample.txt will get created automatically.
+=> As soon as you run the above code sample.txt will get created automatically. This same thing happens when you open a file in append mode.
+
+f = open("sample.txt", "a")
+f.close()
+
+# There are several other modes some of which we can open a file which are explained below.
+
+1. "r+" mode : File is opened in read and write mode and the file does not get 'truncate' in this mode. The stream is positioned at the beginning of the file.
+
+e.g.
+
+Content of demo.txt file:
+Welcome all!
+We are learning Python from HCL Guvi.
+Hope this will help you in your career ahead.
+
+f = open("demo.txt", "r+")
+f.write("Hi there!")
+print(f.read())
+f.close()
+
+Output for write operation:
+Hi there!ll!
+We are learning Python from HCL Guvi.
+Hope this will help you in your career ahead.
+
+Output for read operation:
+ll!
+We are learning Python from HCL Guvi.
+Hope this will help you in your career ahead.
+
+# Here, whatever we write, it is overriding the content of the demo.txt from the starting of the file. And then when we read the file the pointer starts to read from the last position where it had written.
+
+2. "w+" mode : File is opened in read and write mode. The file is created if it does not exist, otherwise it is 'truncated'. The stream is positioned at the beginning of the file.
+
+Content of demo.txt file:
+Hi there!ll!
+We are learning Python from HCL Guvi.
+Hope this will help you in your career ahead.
+
+f = open("demo.txt", "w+")
+print(f.read())
+f.write("Putting content after truncate")
+f.close()
+
+# We will get blank line as the output because the file has been truncated. And then the content has been put in the file.
+
+3. "a+" mode : File is opened in read and write mode. The file is created if it does not exist. The stream is positioned at the end of the file. Subsequent writes to the file will always end up at the current end of file, irrespective of any intervening fseek(3) or similar.
+
+Content of demo.txt file:
+Putting content after truncate
+
+f = open("demo.txt", "a+")
+print(f.read())
+f.write("Putting content after truncate")
+f.close()
+
+# We will get blank line as the output because the stream is placed at the end of file, but we write the content will get added at the end of the file without truncating or overriding the previous content of the file.
+
+
+# Above codes can also be written using 'with', let's see how.
+
+1. "r" mode :
+with open("demo.txt", "r") as f:
+    data = f.read()
+    print(data)
+
+=> Here, f is an alias. (Alias means the alternative name for the same thing like 'Ironman' is alias for 'Tony Stark'). When using with we don't mandatorily need to close the file as it is taken care by with keyword here.
+
+2. "w" mode :
+with open("demo.txt", "w") as f:
+    f.write("This is a new data.")
+
+
+# Deleting a file: We can not directly delete a file saying f.delete(). For deleting we need to use a module "os" in Python.
+
+=> What are modules in Python?
+Module (like a code library) is a file written by another programmer that generally has functions that we can use.
+Some modules are pre-installed and some we need to install manually. e.g. os module is pre-installed so, if you run "import os" it throws no error but if you do "import tensorflow" it throws error "ModuleNotFoundError: No module named 'tensorflow'" as it does not comes pre-installed in Python.
+
+If you want to install a module then you can use,
+pip install moduleName
+or,
+pip3 install moduleName
+
+e.g.
+
+pip install tensorflow
+
+=> pip is the standard package manager for Python, used to install, update, and manage additional libraries and dependencies that do not come bundled with the standard Python installation. It is an recursive acronym.
+
+=> To delete we can do,
+
+import os
+os.remove("sample.txt") # Here, sample.txt is a file name to be deleted.
+
+
+# Practice Questions:
+
+1. Create a new file "practice.txt" using python. Add the following data in it:
+Hi everyone
+we are learning File I/O
+using Java.
+I like programming in Java.
+
+Solution:
+
+with open("practice.txt", "w") as f:
+    f.write(
+        "Hi everyone\nwe are learning File I/O\nusing Java.\nI like programming in Java."
+    )
+
+2. Write a Program that replace all occurrence of "Java" with "python" in above file.
+
+Solution:
+
+with open("practice.txt", "r") as f:
+    with open("practice.txt", "r") as f:
+    data = f.read()
+    print(data)
+
+newData = data.replace("Java", "python")
+print(newData)
+
+with open("practice.txt", "w") as f:
+    f.write(newData)
+
+3. Search if the word "learning" exists in the file or not.
+
+Solution:
+
+with open("practice.txt", "r") as f:
+    data = f.read()
+
+    if data.find("learning") != 1:
+        print("Word found")
+    else:
+        print("Word not found")
+
+Alternatively:
+
+def check_for_word():
+    with open("practice.txt", "r") as f:
+        data = f.read()
+
+        if data.find("learning") != 1:
+            print("Word found")
+        else:
+            print("Word not found")
+
+check_for_word()
+
+4. Write a Program to find in which line of the file does the word "learning" occurs first. Print -1 if word not found.
+
+Solution:
+
+def check_for_line():
+    word = "learning"
+    data = True
+    line_no = 1
+    with open("practice.txt", "r") as f:
+        while data:
+            data = f.readline()
+
+            if word in data:
+                return line_no
+            line_no += 1
+    return -1
+
+print(check_for_line())
+
+5. From a file containing numbers separated by comma, print the count of even numbers.
+
+Solution:
+
+Steps to achieve:
+1. Give numbers should be individual numbers (that means we need to make it as substring)
+2. parse / casting to integer
+
+=> Below code is written from scratch.
+
+count = 0
+with open("practice.txt", "r") as f:
+    data = f.read()
+
+    num = ""
+    for i in range(len(data)):
+        if data[i] == ",":
+            if int(num) % 2 == 0:
+                count += 1
+            num = ""
+        else:
+            num += data[i]
+
+    # Check the last number
+    if num:
+        if int(num) % 2 == 0:
+            count += 1
+
+print(count)
+
+Alternatively:
+
+count = 0
+with open("practice.txt", "r") as f:
+    data = f.read()
+
+    nums = data.split(",")
+    for val in nums:
+        if int(val) % 2 == 0:
+            count += 1
+
+print(count)
