@@ -1987,7 +1987,7 @@ How can we delete a file?
 
 All files can be categorized into two types:
 1. Text Files: In this type of files data is stored in the form of characters. e.g. .txt, .docx, .log, etc.
-2. Binary Files: Tn this type data is stored in any form other than text. e.g. .mp4, .mov, .png, .jpeg, etc.
+2. Binary Files: In this type data is stored in any form other than text. e.g. .mp4, .mov, .png, .jpeg, etc.
 
 NOTE: No matter what kind of file it is, when it goes into memory it is stored in the form of bits i.e. 0's and 1's just on the surface level we have classified as Text and Binary files.
 
@@ -2317,3 +2317,13 @@ with open("practice.txt", "r") as f:
             count += 1
 
 print(count)
+
+
+# Object Oriented Programming using Python (OOPS):
+
+Here we will be studying about Objects and Classes in Python and fundamental of OOPS.
+
+Why do we use OOPS?
+=> To map with real world scenarios, we started using objects in code. This is called Object Oriented Programming.
+
+=> In the beginning we used to use Procedural Programming
